@@ -62,6 +62,23 @@ border:1px solid #ccc;
 font-size:16px;
 }
 
+    .locationBtn{
+display:inline-block;
+padding:12px 25px;
+border-radius:8px;
+background:linear-gradient(45deg,#ff4d6d,#ff758f);
+color:white;
+text-decoration:none;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.locationBtn:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px pink;
+}
+
 button{
 padding:12px 25px;
 border:none;
@@ -162,8 +179,8 @@ width:100%;
 
 <br>
 
-<a id="mapLink" target="_blank">
-<button>View Location</button>
+<a id="mapLink" target="_blank" onclick="stopMusic()" class="locationBtn">
+View Location
 </a>
 
 </a>
@@ -180,6 +197,12 @@ width:100%;
 
 const name = params.get("name");
 // const phone = params.get("phone");
+
+    function stopMusic(){
+let music=document.getElementById("bgMusic");
+music.pause();
+music.currentTime=0;
+}
 
 if(name){
 document.getElementById("guestName").innerText=name;
@@ -251,4 +274,5 @@ document.getElementById("mapLink").href=
 
 </body>
 </html>
+
 
